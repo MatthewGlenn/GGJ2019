@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
 
         //Store the current vertical input in the float moveVertical.
         float moveVertical = Input.GetAxis("Vertical");
-        Debug.Log(moveHorizontal + " , " + moveVertical );
         //Use the two store floats to create a new Vector2 variable movement.
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
