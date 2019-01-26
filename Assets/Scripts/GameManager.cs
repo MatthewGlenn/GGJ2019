@@ -8,17 +8,11 @@ public class GameManager : MonoBehaviour
     private GameObject levelImage;
 
     void Awake() {
-        if(instance == null)
-            instance = this;
-        else if(instance != this)
-            Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
         
         InitGame();
     }
 
-     void InitGame()
+    void InitGame()
     {
         levelImage = GameObject.Find("LevelImage");
         
@@ -28,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("The left key was pressed");
+             Debug.Log("The left key was pressed");
         }
         else if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             Debug.Log("The right key was pressed");
