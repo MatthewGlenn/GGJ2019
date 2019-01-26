@@ -1,13 +1,18 @@
 fileFormatVersion: 2
-guid: f942806e4835a4ca3af4c939b3d3d5b1
+guid: f92f8aa309f904d6685086b65c0f2340
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Balloon_0
-    21300002: Balloon_1
-    21300004: Balloon_2
-    21300006: Balloon_3
-    21300008: Balloon_4
-    21300010: Balloon_5
+    21300000: Character-F_0
+    21300002: Character-F_1
+    21300004: Character-F_2
+    21300006: Character-F_3
+    21300008: Character-F_4
+    21300010: Character-F_5
+    21300012: Character-F_6
+    21300014: Character-F_7
+    21300016: Character-F_8
+    21300018: Character-F_9
+    21300020: Character-F_10
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -98,17 +103,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -134,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Balloon_0
+      name: Character-F_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 21
-        height: 32
+        width: 44
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,19 +142,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bd48ebe656f846f89a261044b52e1e8
+      spriteID: 733623fc375374dcbaa5c23e32f18c55
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balloon_1
+      name: Character-F_1
       rect:
         serializedVersion: 2
-        x: 21
+        x: 44
         y: 0
-        width: 21
-        height: 32
+        width: 44
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,19 +162,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6539e2f6c4e04399b645c82a2c4f58a
+      spriteID: 7252d4fae9a364b6fb8dcf189739f5b2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balloon_2
+      name: Character-F_2
       rect:
         serializedVersion: 2
-        x: 42
+        x: 88
         y: 0
-        width: 21
-        height: 32
+        width: 44
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38b0c518723cd48f8bbe4601b57fbf35
+      spriteID: 48a79fcd2b1cd49e8ba13fe51665d357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balloon_3
+      name: Character-F_3
       rect:
         serializedVersion: 2
-        x: 63
+        x: 132
         y: 0
-        width: 21
-        height: 32
+        width: 44
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,19 +202,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 744d1973c1f6d4ae985e2f2ea002c881
+      spriteID: 02192d8ce21e842f595720f4358a0430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balloon_4
+      name: Character-F_4
       rect:
         serializedVersion: 2
-        x: 84
+        x: 176
         y: 0
-        width: 21
-        height: 32
+        width: 44
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,19 +222,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc37192943a2d4bd1b9730f9abe8a26f
+      spriteID: a3b82f86019f64633b2101c10aa1cd08
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balloon_5
+      name: Character-F_5
       rect:
         serializedVersion: 2
-        x: 105
+        x: 220
         y: 0
-        width: 21
-        height: 32
+        width: 44
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,7 +242,107 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 353588b96c34d45ada8f393f42586212
+      spriteID: 0893546951fa340d3966590140f23e7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character-F_6
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6934396549494943a7c2b1108a4779d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character-F_7
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343168abb42014dffa814e3d22134204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character-F_8
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a611b7dabd4b2408b8497ce84b8cc5c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character-F_9
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 0
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390598be7e4604d7dbb74b57d7ac47af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character-F_10
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19b7c83e4f714869b3ab36c58c9c313
       vertices: []
       indices: 
       edges: []
@@ -256,7 +350,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 717029547aa844f81b7a1c63c65bd0b6
+    spriteID: 5ae58fe7f94664995b45a76b565fdd99
     vertices: []
     indices: 
     edges: []
