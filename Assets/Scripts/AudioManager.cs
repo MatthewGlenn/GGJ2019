@@ -5,12 +5,14 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource efxSource;
+    public AudioSource roomAudioSrc;
+    private AudioClip roomAudio;
+
     public static AudioManager instance = null;
 
     public float lowPitchRange = 0.95f;
     public float highPitchRange = 1.05f;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (instance == null)
@@ -19,6 +21,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+
     }
 
     public void PlaySingle(AudioClip clip)
@@ -34,6 +37,18 @@ public class AudioManager : MonoBehaviour
         efxSource.clip = clips[randomIndex];
         efxSource.pitch = randomPitch;
         efxSource.Play();
+    }
+
+    public void addRoomAudio( AudioClip clip )
+    {
+        roomAudioSrc.clip = clip;
+        roomAudioSrc.Play();
+    }
+
+    public void removeRoomAudio()
+    {
+        roomAudioSrc.clip = null;
+        roomAudioSrc.Stop();
     }
 
 }
