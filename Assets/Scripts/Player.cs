@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     //True if the character sprite is facing left
     private bool facingLeft;
 
-
+    private GameObject[] sortingOrders;
     
 
     // Use this for initialization
@@ -50,6 +50,14 @@ public class Player : MonoBehaviour
         isWalking = false;
         facingLeft = true;
         holdingItem = false;
+
+        // Z-index all items
+        sortingOrders = GameObject.FindGameObjectsWithTag("ZSort");
+
+        foreach (GameObject sortingOrder in sortingOrders)
+        {
+            sortingOrder.GetComponent<SpriteRenderer>().sortingOrder = (int) (sortingOrder.transform.position.y * -100);
+        }
     }
 
 
