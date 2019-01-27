@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private Item heldItem;
     //Holds reference to "Memory" associated with the item the player last picked up
     private String memory;
+    private bool holdingItem;
 
     //True if the player is currently overlapping an interactable object
     private bool isTouching;
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         touchingObject = null;
         isWalking = false;
         facingLeft = true;
+        holdingItem = false;
     }
 
 
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
      **/
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Item" || other.tag == "Interactable" )
+        if (other.tag == "Item" || other.tag == "Interactable" || other.tag == "Trash" )
         {
             isTouching = true;
             touchingObject = other;
@@ -89,20 +91,34 @@ public class Player : MonoBehaviour
         //If no interactable object present, return
         if (!isTouching || touchingObject == null)
         {
-            animator.SetTrigger("StandStill");
+            if ( holdingItem )
+                animator.SetTrigger("StandStillWithItem");
+            else
+                animator.SetTrigger("StandStill");
             return;
         }
-        
+
+        //If the player is holding an item they can throw away, dispose of the item
+        if ( touchingObject.tag == "Trash" && holdingItem )
+        {
+            Debug.Log("GET DUNKED ON");
+            heldItem = null;
+            holdingItem = false;
+        }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
-        if( touchingObject.tag == "Item" )
+        else if( touchingObject.tag == "Item" )
         {
             animator.SetTrigger("StandStillWithItem");
 
             heldItem = touchingObject.gameObject.GetComponent<Item>();
 
             memory = heldItem.memory;
-            touchingObject.gameObject.SetActive(false);
+            Destroy(touchingObject.gameObject);
+            heldItem = null;
+            holdingItem = true;
+           // touchingObject.gameObject.SetActive(false);
+           // touchingObject = null;
         }
         //If the object is an Interactable decoration, make it do a special animation
         else if(touchingObject.tag == "Interactable")
@@ -110,6 +126,8 @@ public class Player : MonoBehaviour
             animator.SetTrigger("StandStill");
 
         }
+
+        
 
     }
 
@@ -156,7 +174,7 @@ public class Player : MonoBehaviour
                 facingLeft = !facingLeft;
             }
 
-            if (heldItem == null)
+            if ( !holdingItem )
             {
                 animator.SetTrigger("Walk");
             }
@@ -169,7 +187,7 @@ public class Player : MonoBehaviour
         else if( isWalking && (moveHorizontal == 0 && moveVertical == 0) )
         {
             isWalking = false;
-            if (heldItem == null)
+            if (!holdingItem )
                 animator.SetTrigger("StandStill");
             else
                 animator.SetTrigger("StandStillWithItem");
