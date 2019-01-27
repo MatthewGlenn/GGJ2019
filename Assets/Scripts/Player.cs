@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
     private Item heldItem;
     //Holds reference to "Memory" associated with the item the player last picked up
     private String memory;
+    public Text printMemory;
+    private int txtAdv;
+
     private bool holdingItem;
 
     //True if the player is currently overlapping an interactable object
@@ -31,8 +35,18 @@ public class Player : MonoBehaviour
     //True if the character sprite is facing left
     private bool facingLeft;
 
+    public AudioClip footsteps1;
+    public AudioClip footsteps2;
+    public AudioClip footsteps3;
+    public AudioClip footsteps4;
+    public AudioClip footsteps5;
+    public AudioClip pickup;
+    public AudioClip putdown;
 
-    
+    public GameObject _textBackground;
+    private Image _textBackgroundImage;
+
+
 
     // Use this for initialization
     void Start()
@@ -50,6 +64,9 @@ public class Player : MonoBehaviour
         isWalking = false;
         facingLeft = true;
         holdingItem = false;
+        txtAdv = 0;
+
+        _textBackgroundImage = _textBackground.GetComponent<Image>();
     }
 
 
@@ -102,19 +119,24 @@ public class Player : MonoBehaviour
         //If the player is holding an item they can throw away, dispose of the item
         if ( touchingObject.tag == "Trash" && holdingItem )
         {
+            AudioManager.instance.PlaySingle(putdown);
             Debug.Log("GET DUNKED ON");
             heldItem = null;
             holdingItem = false;
+            txtAdv = 0;
+            printMemory.text = "";
         }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
         else if( touchingObject.tag == "Item" )
         {
+            AudioManager.instance.PlaySingle(pickup);
             animator.SetTrigger("StandStillWithItem");
-
+            
             heldItem = touchingObject.gameObject.GetComponent<Item>();
 
             memory = heldItem.memory;
+
             Destroy(touchingObject.gameObject);
             heldItem = null;
             holdingItem = true;
@@ -140,12 +162,25 @@ public class Player : MonoBehaviour
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
-        //Print string of item, if one exists
-        if (memory != null)
+        if( isWalking && !AudioManager.instance.efxSource.isPlaying  )
         {
-            Debug.Log( memory );
-            memory = null;
+            AudioManager.instance.RandomizeSfx(footsteps1, footsteps2, footsteps3, footsteps4, footsteps5);
         }
+
+        if (holdingItem && (txtAdv <= memory.Length * 2))
+        {
+          //  var tempColor = _textBackgroundImage.color;
+         //   tempColor.a = 0.75f;
+         //   _textBackgroundImage.color = tempColor;
+            txtAdv++;
+            printMemory.text = memory.Substring(0, (txtAdv / 2));
+        }
+      /*  else
+        {
+            var tempColor = _textBackgroundImage.color;
+            tempColor.a = 0.0f;
+            _textBackgroundImage.color = tempColor;
+        }*/
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))
@@ -177,7 +212,6 @@ public class Player : MonoBehaviour
         if ( !isWalking && ( moveHorizontal != 0 || moveVertical != 0 ) )
         {
             isWalking = true;
-
 
             if ( !holdingItem )
             {
