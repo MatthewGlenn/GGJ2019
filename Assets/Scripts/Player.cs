@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+public bool isFemale = false;
+
     public float speed;             //Floating point variable to store the player's movement speed.
 
     private Rigidbody2D rb2D;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
@@ -76,7 +79,7 @@ public class Player : MonoBehaviour
      **/
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Item" || other.tag == "Interactable" || other.tag == "Trash" )
+        if (other.tag == "Item" || other.tag == "Interactable" || other.tag == "Trash" || other.tag == "Record")
         {
             isTouching = true;
             touchingObject = other;
@@ -104,7 +107,13 @@ public class Player : MonoBehaviour
     {
         Input.ResetInputAxes();
         //Play animation for interating with object
-        animator.PlayInFixedTime("PlayerInteract",  0, float.NegativeInfinity);
+        Debug.Log(isFemale);
+        if (isFemale) {
+            animator.PlayInFixedTime("FPlayerInteract",  0, float.NegativeInfinity);
+        } else {
+            animator.PlayInFixedTime("PlayerInteract",  0, float.NegativeInfinity);
+        }
+        
 
         //If no interactable object present, return
         if (!isTouching || touchingObject == null)
@@ -119,12 +128,17 @@ public class Player : MonoBehaviour
         //If the player is holding an item they can throw away, dispose of the item
         if ( touchingObject.tag == "Trash" && holdingItem )
         {
+var tempColor = _textBackgroundImage.color;
+            tempColor.a = 0.0f;
+            _textBackgroundImage.color = tempColor;
+
             AudioManager.instance.PlaySingle(putdown);
             Debug.Log("GET DUNKED ON");
             heldItem = null;
             holdingItem = false;
             txtAdv = 0;
             printMemory.text = "";
+            animator.SetTrigger("StandStill");
         }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
@@ -146,10 +160,16 @@ public class Player : MonoBehaviour
         }else if( touchingObject.tag == "Record" )
         {
             int itemsLeftToPickUp = GameObject.FindGameObjectsWithTag("Item").Length;
-            Debug.Log("Items Left: "+ itemsLeftToPickUp);
+            Debug.Log("Items Left: " + itemsLeftToPickUp);
             if(itemsLeftToPickUp == 0){
+                Debug.Log("Throw away Record Player");
                 tossItem();
                 // TODO: Game Ending
+            }else{
+                Debug.Log("Print Record Player Message");
+                heldItem = touchingObject.gameObject.GetComponent<Item>();
+                memory = heldItem.memory;
+                printTextMemory();
             }
         }
     }
@@ -174,6 +194,14 @@ public class Player : MonoBehaviour
         spriteRenderer.sortingOrder = (int) (_playerTransform.position.y * -100);   
     }
 
+    void printTextMemory(){
+        var tempColor = _textBackgroundImage.color;
+        tempColor.a = 0.75f;
+       _textBackgroundImage.color = tempColor;
+        txtAdv++;
+        printMemory.text = memory.Substring(0, (txtAdv / 2));
+    }
+
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
@@ -184,18 +212,35 @@ public class Player : MonoBehaviour
 
         if (holdingItem && (txtAdv <= memory.Length * 2))
         {
-           var tempColor = _textBackgroundImage.color;
-           tempColor.a = 0.75f;
-           _textBackgroundImage.color = tempColor;
-            txtAdv++;
-            printMemory.text = memory.Substring(0, (txtAdv / 2));
-        }
-      else
+           printTextMemory();
+        }else if (touchingObject != null && memory != null && isTouching == true)
         {
+            if (touchingObject.tag == "Record" && (txtAdv <= memory.Length * 2))
+            {
+                printTextMemory();
+            }else{
+                txtAdv = 0;
+                printMemory.text = "";
+                memory = "";
+                var tempColor = _textBackgroundImage.color;
+                tempColor.a = 0.0f;
+                _textBackgroundImage.color = tempColor;
+            }
+        }else if (_textBackgroundImage.color.a != 0.0f)
+        {
+            txtAdv = 0;
+            printMemory.text = "";
+            memory = "";
             var tempColor = _textBackgroundImage.color;
             tempColor.a = 0.0f;
             _textBackgroundImage.color = tempColor;
         }
+    //   else
+    //     {
+    //         var tempColor = _textBackgroundImage.color;
+    //         tempColor.a = 0.0f;
+    //         _textBackgroundImage.color = tempColor;
+    //     }
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))
