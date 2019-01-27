@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 404307343576094222}
   - component: {fileID: 404307343576094209}
   m_Layer: 8
-  m_Name: PlayCharacter
+  m_Name: Player_Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,6 +95,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.25
+  printMemory: {fileID: 0}
+  footsteps1: {fileID: 8300000, guid: 173f1b89c74a24849b665f365c3843ad, type: 3}
+  footsteps2: {fileID: 8300000, guid: d8689e782839e1a468343c106981b068, type: 3}
+  footsteps3: {fileID: 8300000, guid: 44b6136512de3bf419f612739be96025, type: 3}
+  footsteps4: {fileID: 8300000, guid: 6d819e07ac76b2b4fb250b4a679decf0, type: 3}
+  footsteps5: {fileID: 8300000, guid: fc0d7604c07213d4ab5f87a789cc9c10, type: 3}
+  pickup: {fileID: 8300000, guid: 81fcc53196de3ae47a1e63981adba59e, type: 3}
+  putdown: {fileID: 8300000, guid: 3e161714629d1364e8e1a3d7656671d2, type: 3}
+  _textBackground: {fileID: 0}
 --- !u!212 &404307343576094222
 SpriteRenderer:
   m_ObjectHideFlags: 0

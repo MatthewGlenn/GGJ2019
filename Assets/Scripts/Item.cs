@@ -7,18 +7,4 @@ public class Item : MonoBehaviour
     //Text associated with item
     public string memory;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
 }
