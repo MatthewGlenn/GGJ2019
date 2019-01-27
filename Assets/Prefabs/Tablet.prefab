@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2153238365131095539}
   - component: {fileID: 2153238365131095538}
   - component: {fileID: 2153238365131095532}
-  - component: {fileID: 2153238365131095533}
   - component: {fileID: 2153238365131095534}
   - component: {fileID: 2153238365131095535}
   m_Layer: 0
@@ -102,20 +101,6 @@ MonoBehaviour:
     an year, but they still kept it way past when they should have thrown it out.
     I\u2019ve always been better at getting rid of things, maybe that\u2019s why I
     wasn\u2019t ready for this."
---- !u!114 &2153238365131095533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2153238365131095536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc756cfc2b3247e5bc65de8fe1896c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  audioObject: {fileID: 0}
 --- !u!50 &2153238365131095534
 Rigidbody2D:
   serializedVersion: 4

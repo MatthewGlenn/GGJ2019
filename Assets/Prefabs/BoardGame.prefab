@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6330530183094205080}
   - component: {fileID: 6330530183094205083}
   - component: {fileID: 3362143913844127150}
-  - component: {fileID: 6128609586158279024}
   - component: {fileID: 6330530183094205086}
   - component: {fileID: 6330530183094205081}
   m_Layer: 0
@@ -101,20 +100,6 @@ MonoBehaviour:
     share, why we never got a joint bank account, why we needed separate pizzas, why
     we were so good at being apart. We were so good at prioritizing our individual
     selves over \u2018ourselves.\u2019"
---- !u!114 &6128609586158279024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330530183094205082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc756cfc2b3247e5bc65de8fe1896c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  audioObject: {fileID: 0}
 --- !u!61 &6330530183094205086
 BoxCollider2D:
   m_ObjectHideFlags: 0

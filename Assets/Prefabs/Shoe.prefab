@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1709919893152673716}
   - component: {fileID: 1709919893152673723}
   - component: {fileID: 1709919893152673721}
-  - component: {fileID: 1709919893152673722}
   - component: {fileID: 1709919893152673727}
   - component: {fileID: 1709919893152673720}
   m_Layer: 0
@@ -99,20 +98,6 @@ MonoBehaviour:
     at 3 am, Standing in line to pick them up, paying way too much money. But it was
     worth it. I wish I understood the appeal. I wish I enjoyed something as much as
     they enjoyed these stupid overpriced shoes.
---- !u!114 &1709919893152673722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709919893152673717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc756cfc2b3247e5bc65de8fe1896c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  audioObject: {fileID: 0}
 --- !u!50 &1709919893152673727
 Rigidbody2D:
   serializedVersion: 4

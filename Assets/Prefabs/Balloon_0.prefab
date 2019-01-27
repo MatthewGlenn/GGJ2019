@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8684222797686530246}
   - component: {fileID: 8414966803633353439}
   - component: {fileID: 7739914104758242597}
-  - component: {fileID: 2096375493599877328}
   - component: {fileID: 2703133083777800967}
   - component: {fileID: 7244582539581502838}
   m_Layer: 0
@@ -117,20 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memory: I hate balloons. But they liked balloons. What is the point of balloons?
     Why did we keep this?
---- !u!114 &2096375493599877328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5253693740315252526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc756cfc2b3247e5bc65de8fe1896c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  audioObject: {fileID: 0}
 --- !u!61 &2703133083777800967
 BoxCollider2D:
   m_ObjectHideFlags: 0
