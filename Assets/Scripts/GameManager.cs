@@ -8,11 +8,19 @@ public class GameManager : MonoBehaviour
     public GameObject maleChar;
     public GameObject femaleChar;
     public GameObject fadeToBlack;
+    public GameObject[] sortingOrders;
 
     private Animator _fadeToBlackAnimator;
 
     void Awake() {
         _fadeToBlackAnimator = fadeToBlack.GetComponent<Animator>();
+
+        sortingOrders = GameObject.FindGameObjectsWithTag("ZSort");
+
+        foreach (GameObject sortingOrder in sortingOrders)
+        {
+            sortingOrder.GetComponent<SpriteRenderer>().sortingOrder = (int) (sortingOrder.transform.position.y * -100);
+        }
     }
 
     void Update()
