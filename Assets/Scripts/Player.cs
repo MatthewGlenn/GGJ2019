@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private BoxCollider2D boxCollider;  //Stores BoxCollider for player
     private SpriteRenderer spriteRenderer; //Stores sprite renderer for player. Referenced to send triggers and play animations
 
+    private Transform _playerTransform;
+
     //Holds reference to Item held in player's hand
     private Item heldItem;
     //Holds reference to "Memory" associated with the item the player last picked up
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        _playerTransform = GetComponent<Transform>();
 
         //Initialize simple variables
         isTouching = false;
@@ -108,6 +111,11 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+
+    void Update() {
+        // Z-index fix
+        spriteRenderer.sortingOrder = (int) (_playerTransform.position.y * -100);   
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
