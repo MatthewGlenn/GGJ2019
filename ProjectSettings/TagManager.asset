@@ -5,11 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
-<<<<<<< Updated upstream
   - ZSort
-=======
+  - Undefined
   - Trash
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
