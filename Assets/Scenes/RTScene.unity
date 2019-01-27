@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 4489672478079144253, guid: 34016b7fb8fe94e2eb8a42b567045804,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 851907574083085803, guid: 34016b7fb8fe94e2eb8a42b567045804,
         type: 3}
@@ -1043,6 +1043,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.9
       objectReference: {fileID: 0}
+    - target: {fileID: 1628204757, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 380454585}
+    - target: {fileID: 1628204757, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: audioObject
+      value: 
+      objectReference: {fileID: 999982142}
+    - target: {fileID: 410923706, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 380454585}
+    - target: {fileID: 410923706, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: audioObject
+      value: 
+      objectReference: {fileID: 999982142}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
 --- !u!4 &262580990 stripped
@@ -1068,6 +1084,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 404307343576094208, guid: e4fa1eae7c0114746bf62b219903827f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404307343576094221, guid: e4fa1eae7c0114746bf62b219903827f,
         type: 3}
@@ -2347,6 +2368,10 @@ MonoBehaviour:
   femaleChar: {fileID: 0}
   fadeToBlack: {fileID: 1972305627}
   sortingOrders: []
+  player: {fileID: 380454585}
+  fAnimationController: {fileID: 9100000, guid: ed3edd6b6d5c846f78b572bfc5f2b6d1,
+    type: 2}
+  fSprite: {fileID: 21300000, guid: f92f8aa309f904d6685086b65c0f2340, type: 3}
 --- !u!1 &1245103133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2568,7 @@ GameObject:
   - component: {fileID: 1310240707}
   - component: {fileID: 1310240706}
   - component: {fileID: 1310240705}
+  - component: {fileID: 1310240708}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2618,6 +2644,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310240708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310240704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 5e3c7e167e1f3437ebde61a6397e1975, type: 2}
 --- !u!1001 &1373242954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7276,6 +7315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1310240704}
+  roomAudio: {fileID: 0}
 --- !u!212 &3456438578506167817
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10860,6 +10900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1310240704}
+  roomAudio: {fileID: 0}
 --- !u!212 &7539759093794033761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12487,6 +12528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1310240704}
+  roomAudio: {fileID: 0}
 --- !u!212 &8678047484031121799
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+public bool isFemale = false;
+
     public float speed;             //Floating point variable to store the player's movement speed.
 
     private Rigidbody2D rb2D;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
@@ -104,7 +107,13 @@ public class Player : MonoBehaviour
     {
         Input.ResetInputAxes();
         //Play animation for interating with object
-        animator.PlayInFixedTime("PlayerInteract",  0, float.NegativeInfinity);
+        Debug.Log(isFemale);
+        if (isFemale) {
+            animator.PlayInFixedTime("FPlayerInteract",  0, float.NegativeInfinity);
+        } else {
+            animator.PlayInFixedTime("PlayerInteract",  0, float.NegativeInfinity);
+        }
+        
 
         //If no interactable object present, return
         if (!isTouching || touchingObject == null)
