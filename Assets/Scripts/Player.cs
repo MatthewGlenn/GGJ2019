@@ -169,18 +169,18 @@ public class Player : MonoBehaviour
 
         if (holdingItem && (txtAdv <= memory.Length * 2))
         {
-          //  var tempColor = _textBackgroundImage.color;
-         //   tempColor.a = 0.75f;
-         //   _textBackgroundImage.color = tempColor;
+           var tempColor = _textBackgroundImage.color;
+           tempColor.a = 0.75f;
+           _textBackgroundImage.color = tempColor;
             txtAdv++;
             printMemory.text = memory.Substring(0, (txtAdv / 2));
         }
-      /*  else
+      else
         {
             var tempColor = _textBackgroundImage.color;
             tempColor.a = 0.0f;
             _textBackgroundImage.color = tempColor;
-        }*/
+        }
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))
