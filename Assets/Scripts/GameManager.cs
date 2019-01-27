@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
     public GameObject levelImage;
     public GameObject maleChar;
     public GameObject femaleChar;
+    public GameObject fadeToBlack;
+
+    private Animator _fadeToBlackAnimator;
 
     void Awake() {
-        
+        _fadeToBlackAnimator = fadeToBlack.GetComponent<Animator>();
     }
 
     void Update()
@@ -23,6 +26,12 @@ public class GameManager : MonoBehaviour
             Destroy(levelImage);
             Debug.Log("The right key was pressed");
         }
+    }
+
+    public void FadeToBlack() {
+
+        _fadeToBlackAnimator.SetTrigger("EndGame");
+
     }
 
 }
