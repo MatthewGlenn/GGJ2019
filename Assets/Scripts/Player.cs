@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     //True if the character sprite is facing left
     private bool facingLeft;
 
-    private GameObject[] sortingOrders;
+
     
 
     // Use this for initialization
@@ -50,14 +50,6 @@ public class Player : MonoBehaviour
         isWalking = false;
         facingLeft = true;
         holdingItem = false;
-
-        // Z-index all items
-        sortingOrders = GameObject.FindGameObjectsWithTag("ZSort");
-
-        foreach (GameObject sortingOrder in sortingOrders)
-        {
-            sortingOrder.GetComponent<SpriteRenderer>().sortingOrder = (int) (sortingOrder.transform.position.y * -100);
-        }
     }
 
 
@@ -93,6 +85,7 @@ public class Player : MonoBehaviour
 
     private void Interact()
     {
+        Input.ResetInputAxes();
         //Play animation for interating with object
         animator.PlayInFixedTime("PlayerInteract",  0, float.NegativeInfinity);
 
@@ -169,18 +162,22 @@ public class Player : MonoBehaviour
 
         //Store the current vertical input in the float moveVertical.
         float moveVertical = Input.GetAxis("Vertical");
-        
+
+
+        //Check if player needs to flip direction to face walking direction
+        if ((moveHorizontal > 0 && facingLeft) || (moveHorizontal < 0 && !facingLeft))
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            facingLeft = !facingLeft;
+        }
+
+
         //Check if player is currently moving, and if not, trigger a walking animation.
         //This helps reduce the amount of signals sent to the Animator Controller
         if ( !isWalking && ( moveHorizontal != 0 || moveVertical != 0 ) )
         {
             isWalking = true;
-            //Check if player needs to flip direction to face walking direction
-            if ((moveHorizontal > 0 && facingLeft) || (moveHorizontal < 0 && !facingLeft))
-            {
-                spriteRenderer.flipX = !spriteRenderer.flipX;
-                facingLeft = !facingLeft;
-            }
+
 
             if ( !holdingItem )
             {
