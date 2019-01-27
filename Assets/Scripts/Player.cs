@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
     public AudioClip pickup;
     public AudioClip putdown;
 
+    public GameObject _textBackground;
+    private Image _textBackgroundImage;
+
 
 
     // Use this for initialization
@@ -62,6 +65,8 @@ public class Player : MonoBehaviour
         facingLeft = true;
         holdingItem = false;
         txtAdv = 0;
+
+        _textBackgroundImage = _textBackground.GetComponent<Image>();
     }
 
 
@@ -131,6 +136,7 @@ public class Player : MonoBehaviour
             heldItem = touchingObject.gameObject.GetComponent<Item>();
 
             memory = heldItem.memory;
+
             Destroy(touchingObject.gameObject);
             heldItem = null;
             holdingItem = true;
@@ -161,12 +167,20 @@ public class Player : MonoBehaviour
             AudioManager.instance.RandomizeSfx(footsteps1, footsteps2, footsteps3, footsteps4, footsteps5);
         }
 
-        //Print string of item, if one exists
-        if (holdingItem && ( txtAdv <= memory.Length * 2 ) )
+        if (holdingItem && (txtAdv <= memory.Length * 2))
         {
+          //  var tempColor = _textBackgroundImage.color;
+         //   tempColor.a = 0.75f;
+         //   _textBackgroundImage.color = tempColor;
             txtAdv++;
-            printMemory.text = memory.Substring(0, ( txtAdv / 2 ) );
+            printMemory.text = memory.Substring(0, (txtAdv / 2));
         }
+      /*  else
+        {
+            var tempColor = _textBackgroundImage.color;
+            tempColor.a = 0.0f;
+            _textBackgroundImage.color = tempColor;
+        }*/
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))
