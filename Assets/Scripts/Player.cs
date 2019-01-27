@@ -142,7 +142,7 @@ var tempColor = _textBackgroundImage.color;
         }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
-        else if( touchingObject.tag == "Item" )
+        else if( touchingObject.tag == "Item" && holdingItem == false )
         {
             if (tutorialArrow){
                 Destroy(tutorialArrow);
@@ -157,7 +157,7 @@ var tempColor = _textBackgroundImage.color;
         {
             animator.SetTrigger("StandStill");
 
-        }else if( touchingObject.tag == "Record" )
+        }else if( touchingObject.tag == "Record" && holdingItem == false )
         {
             int itemsLeftToPickUp = GameObject.FindGameObjectsWithTag("Item").Length;
             Debug.Log("Items Left: " + itemsLeftToPickUp);
@@ -219,28 +219,17 @@ var tempColor = _textBackgroundImage.color;
             {
                 printTextMemory();
             }else{
-                txtAdv = 0;
-                printMemory.text = "";
-                memory = "";
-                var tempColor = _textBackgroundImage.color;
-                tempColor.a = 0.0f;
-                _textBackgroundImage.color = tempColor;
+                // printMemory.text = "";
+                // memory = "";
+                // var tempColor = _textBackgroundImage.color;
+                // tempColor.a = 0.0f;
+                // _textBackgroundImage.color = tempColor;
             }
-        }else if (_textBackgroundImage.color.a != 0.0f)
+        }
+      else
         {
             txtAdv = 0;
-            printMemory.text = "";
-            memory = "";
-            var tempColor = _textBackgroundImage.color;
-            tempColor.a = 0.0f;
-            _textBackgroundImage.color = tempColor;
         }
-    //   else
-    //     {
-    //         var tempColor = _textBackgroundImage.color;
-    //         tempColor.a = 0.0f;
-    //         _textBackgroundImage.color = tempColor;
-    //     }
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))

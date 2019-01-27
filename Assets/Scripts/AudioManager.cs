@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource efxSource;
+    public AudioSource BackgroundMusic;
     public AudioSource roomAudioSrc;
     private AudioClip roomAudio;
 
@@ -53,14 +54,26 @@ public class AudioManager : MonoBehaviour
 
     public void Update()
     {
-        if( GameObject.FindGameObjectsWithTag("Item").Length == 0 )
-        {
+        
+    }
+
+    public void StopAllMusic(){
+        // if( GameObject.FindGameObjectsWithTag("Record").Length == 0 || GameObject.FindGameObjectsWithTag("Item").Length < 9 )
+        // {
+        //     Debug.Log("Stop all the music");
+        //     //On Game End Pause Music
+        //     roomAudioSrc.Stop();
+        //     efxSource.Stop();
+        //     BackgroundMusic.Stop();
+
+        //     //Play Cinder
+        // }
+
+        Debug.Log("Stop all the music");
             //On Game End Pause Music
             roomAudioSrc.Stop();
             efxSource.Stop();
-
-            //Play Cinder
-        }
+            BackgroundMusic.Stop();
     }
 
 }

@@ -8,6 +8,7 @@ TagManager:
   - ZSort
   - Undefined
   - Trash
+  - Record
   layers:
   - Default
   - TransparentFX
