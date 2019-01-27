@@ -51,4 +51,16 @@ public class AudioManager : MonoBehaviour
         roomAudioSrc.Stop();
     }
 
+    public void Update()
+    {
+        if( GameObject.FindGameObjectsWithTag("Item").Length == 0 )
+        {
+            //On Game End Pause Music
+            roomAudioSrc.Stop();
+            efxSource.Stop();
+
+            //Play Cinder
+        }
+    }
+
 }

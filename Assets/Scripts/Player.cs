@@ -134,7 +134,28 @@ public class Player : MonoBehaviour
                 Destroy(tutorialArrow);
                 tutorialArrow = null;
             }
-            AudioManager.instance.PlaySingle(pickup);
+
+            tossItem();
+            
+        }
+        //If the object is an Interactable decoration, make it do a special animation
+        else if(touchingObject.tag == "Interactable")
+        {
+            animator.SetTrigger("StandStill");
+
+        }else if( touchingObject.tag == "Record" )
+        {
+            int itemsLeftToPickUp = GameObject.FindGameObjectsWithTag("Item").Length;
+            Debug.Log("Items Left: "+ itemsLeftToPickUp);
+            if(itemsLeftToPickUp == 0){
+                tossItem();
+                // TODO: Game Ending
+            }
+        }
+    }
+
+    void tossItem(){
+        AudioManager.instance.PlaySingle(pickup);
             animator.SetTrigger("StandStillWithItem");
             
             heldItem = touchingObject.gameObject.GetComponent<Item>();
@@ -146,16 +167,6 @@ public class Player : MonoBehaviour
             holdingItem = true;
            // touchingObject.gameObject.SetActive(false);
            // touchingObject = null;
-        }
-        //If the object is an Interactable decoration, make it do a special animation
-        else if(touchingObject.tag == "Interactable")
-        {
-            animator.SetTrigger("StandStill");
-
-        }
-
-        
-
     }
 
     void Update() {

@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
             Destroy(levelImage);
             Debug.Log("The right key was pressed");
         }
+
+        if( GameObject.FindGameObjectsWithTag("Item").Length == 0 )
+        {
+            FadeToBlack();
+        }
     }
 
     public void FadeToBlack() {
