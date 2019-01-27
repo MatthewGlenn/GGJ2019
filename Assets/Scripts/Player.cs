@@ -79,7 +79,7 @@ public bool isFemale = false;
      **/
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Item" || other.tag == "Interactable" || other.tag == "Trash" )
+        if (other.tag == "Item" || other.tag == "Interactable" || other.tag == "Trash" || other.tag == "Record")
         {
             isTouching = true;
             touchingObject = other;
@@ -142,13 +142,40 @@ var tempColor = _textBackgroundImage.color;
         }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
-        else if( touchingObject.tag == "Item" )
+        else if( touchingObject.tag == "Item" && holdingItem == false )
         {
             if (tutorialArrow){
                 Destroy(tutorialArrow);
                 tutorialArrow = null;
             }
-            AudioManager.instance.PlaySingle(pickup);
+
+            tossItem();
+            
+        }
+        //If the object is an Interactable decoration, make it do a special animation
+        else if(touchingObject.tag == "Interactable")
+        {
+            animator.SetTrigger("StandStill");
+
+        }else if( touchingObject.tag == "Record" && holdingItem == false )
+        {
+            int itemsLeftToPickUp = GameObject.FindGameObjectsWithTag("Item").Length;
+            Debug.Log("Items Left: " + itemsLeftToPickUp);
+            if(itemsLeftToPickUp == 0){
+                Debug.Log("Throw away Record Player");
+                tossItem();
+                // TODO: Game Ending
+            }else{
+                Debug.Log("Print Record Player Message");
+                heldItem = touchingObject.gameObject.GetComponent<Item>();
+                memory = heldItem.memory;
+                printTextMemory();
+            }
+        }
+    }
+
+    void tossItem(){
+        AudioManager.instance.PlaySingle(pickup);
             animator.SetTrigger("StandStillWithItem");
             
             heldItem = touchingObject.gameObject.GetComponent<Item>();
@@ -160,21 +187,19 @@ var tempColor = _textBackgroundImage.color;
             holdingItem = true;
            // touchingObject.gameObject.SetActive(false);
            // touchingObject = null;
-        }
-        //If the object is an Interactable decoration, make it do a special animation
-        else if(touchingObject.tag == "Interactable")
-        {
-            animator.SetTrigger("StandStill");
-
-        }
-
-        
-
     }
 
     void Update() {
         // Z-index fix
         spriteRenderer.sortingOrder = (int) (_playerTransform.position.y * -100);   
+    }
+
+    void printTextMemory(){
+        var tempColor = _textBackgroundImage.color;
+        tempColor.a = 0.75f;
+       _textBackgroundImage.color = tempColor;
+        txtAdv++;
+        printMemory.text = memory.Substring(0, (txtAdv / 2));
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -187,18 +212,24 @@ var tempColor = _textBackgroundImage.color;
 
         if (holdingItem && (txtAdv <= memory.Length * 2))
         {
-           var tempColor = _textBackgroundImage.color;
-           tempColor.a = 0.75f;
-           _textBackgroundImage.color = tempColor;
-            txtAdv++;
-            printMemory.text = memory.Substring(0, (txtAdv / 2));
+           printTextMemory();
+        }else if (touchingObject != null && memory != null && isTouching == true)
+        {
+            if (touchingObject.tag == "Record" && (txtAdv <= memory.Length * 2))
+            {
+                printTextMemory();
+            }else{
+                // printMemory.text = "";
+                // memory = "";
+                // var tempColor = _textBackgroundImage.color;
+                // tempColor.a = 0.0f;
+                // _textBackgroundImage.color = tempColor;
+            }
         }
-    //   else
-    //     {
-    //         var tempColor = _textBackgroundImage.color;
-    //         tempColor.a = 0.0f;
-    //         _textBackgroundImage.color = tempColor;
-    //     }
+      else
+        {
+            txtAdv = 0;
+        }
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))

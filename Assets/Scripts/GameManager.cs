@@ -58,7 +58,11 @@ public class GameManager : MonoBehaviour
                 hasPlayerChoosen = true;
             }
         }
-        
+        if( GameObject.FindGameObjectsWithTag("Record").Length == 0 )
+            {
+                Debug.Log("Should Fade to black");
+                FadeToBlack();
+            }
     }
 
     public void FadeToBlack() {

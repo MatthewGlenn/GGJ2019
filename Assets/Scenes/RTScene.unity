@@ -375,6 +375,11 @@ PrefabInstance:
       propertyPath: roomAudioSrc
       value: 
       objectReference: {fileID: 1043193366}
+    - target: {fileID: 7556121528414028825, guid: a1ef97c18c4983e45acdd7ed2729b217,
+        type: 3}
+      propertyPath: BackgroundMusic
+      value: 
+      objectReference: {fileID: 999982144}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1ef97c18c4983e45acdd7ed2729b217, type: 3}
 --- !u!1 &109848341
@@ -1083,15 +1088,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.9
       objectReference: {fileID: 0}
-    - target: {fileID: 1628204757, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 380454585}
-    - target: {fileID: 1628204757, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
-      propertyPath: audioObject
-      value: 
-      objectReference: {fileID: 7556121528414028831, guid: a1ef97c18c4983e45acdd7ed2729b217,
-        type: 3}
+    - target: {fileID: 1628204753, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: m_TagString
+      value: Record
+      objectReference: {fileID: 0}
+    - target: {fileID: 371150386, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2500
+      objectReference: {fileID: 0}
     - target: {fileID: 410923706, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
       propertyPath: playerObject
       value: 
@@ -1121,10 +1125,15 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.29527855
       objectReference: {fileID: 0}
-    - target: {fileID: 371150386, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2500
-      objectReference: {fileID: 0}
+    - target: {fileID: 1628204757, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 380454585}
+    - target: {fileID: 1628204757, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
+      propertyPath: audioObject
+      value: 
+      objectReference: {fileID: 7556121528414028831, guid: a1ef97c18c4983e45acdd7ed2729b217,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f30afaa21e84a4832a0e3bd8f10c7f4b, type: 3}
 --- !u!4 &262580990 stripped
@@ -2789,6 +2798,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4701830803569978032, guid: fc7a14f17e469b8479bbf316b92e41f3,
+        type: 3}
+      propertyPath: m_Name
+      value: Journal
+      objectReference: {fileID: 0}
     - target: {fileID: 4701830803569978033, guid: fc7a14f17e469b8479bbf316b92e41f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2858,11 +2872,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.21411443
-      objectReference: {fileID: 0}
-    - target: {fileID: 4701830803569978032, guid: fc7a14f17e469b8479bbf316b92e41f3,
-        type: 3}
-      propertyPath: m_Name
-      value: Journal
       objectReference: {fileID: 0}
     - target: {fileID: 4701830803569978045, guid: fc7a14f17e469b8479bbf316b92e41f3,
         type: 3}
