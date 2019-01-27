@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private String memory;
     public Text printMemory;
     private int txtAdv;
+    public GameObject _textBackground;
+    private Image _textBackgroundImage;
 
     private bool holdingItem;
 
@@ -54,6 +56,8 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         _playerTransform = GetComponent<Transform>();
+
+        _textBackgroundImage = _textBackground.GetComponent<Image>();
 
         //Initialize simple variables
         isTouching = false;
@@ -164,8 +168,15 @@ public class Player : MonoBehaviour
         //Print string of item, if one exists
         if (holdingItem && ( txtAdv <= memory.Length * 2 ) )
         {
+            var tempColor = _textBackgroundImage.color;
+            tempColor.a = 0.75f;
+            _textBackgroundImage.color = tempColor;
             txtAdv++;
             printMemory.text = memory.Substring(0, ( txtAdv / 2 ) );
+        } else {
+            var tempColor = _textBackgroundImage.color;
+            tempColor.a = 0.0f;
+            _textBackgroundImage.color = tempColor;
         }
 
         //check if player has hit Space Bar
