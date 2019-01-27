@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     public GameObject _textBackground;
     private Image _textBackgroundImage;
 
-
+    public GameObject tutorialArrow;
 
     // Use this for initialization
     void Start()
@@ -130,6 +130,10 @@ public class Player : MonoBehaviour
         //and remove it from play
         else if( touchingObject.tag == "Item" )
         {
+            if (tutorialArrow){
+                Destroy(tutorialArrow);
+                tutorialArrow = null;
+            }
             AudioManager.instance.PlaySingle(pickup);
             animator.SetTrigger("StandStillWithItem");
             
