@@ -128,12 +128,17 @@ public bool isFemale = false;
         //If the player is holding an item they can throw away, dispose of the item
         if ( touchingObject.tag == "Trash" && holdingItem )
         {
+var tempColor = _textBackgroundImage.color;
+            tempColor.a = 0.0f;
+            _textBackgroundImage.color = tempColor;
+
             AudioManager.instance.PlaySingle(putdown);
             Debug.Log("GET DUNKED ON");
             heldItem = null;
             holdingItem = false;
             txtAdv = 0;
             printMemory.text = "";
+            animator.SetTrigger("StandStill");
         }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
@@ -188,12 +193,12 @@ public bool isFemale = false;
             txtAdv++;
             printMemory.text = memory.Substring(0, (txtAdv / 2));
         }
-      else
-        {
-            var tempColor = _textBackgroundImage.color;
-            tempColor.a = 0.0f;
-            _textBackgroundImage.color = tempColor;
-        }
+    //   else
+    //     {
+    //         var tempColor = _textBackgroundImage.color;
+    //         tempColor.a = 0.0f;
+    //         _textBackgroundImage.color = tempColor;
+    //     }
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))

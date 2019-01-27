@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   efxSource: {fileID: 7556121528414028830}
+  roomAudioSrc: {fileID: 0}
   lowPitchRange: 0.95
   highPitchRange: 1.05
 --- !u!82 &7556121528414028830
@@ -59,7 +60,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.36629438
+  m_Volume: 0.009492111
   m_Pitch: 1
   Loop: 0
   Mute: 0
