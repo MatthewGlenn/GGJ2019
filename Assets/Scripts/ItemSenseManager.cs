@@ -21,8 +21,8 @@ public class ItemSenseManager : MonoBehaviour
     {
         float distance = Vector3.Distance(_itemTransform.position, playerObject.transform.position);
         
-        if (distance < 5.0f) {
-            float volume = (100 - (distance * 20.0f)) / 100;
+        if (distance < 2.5f) {
+            float volume = (100 - (distance * 40.0f)) / 100;
             _GOAudioSource.volume = volume;
         }
     }
