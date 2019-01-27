@@ -226,10 +226,6 @@ var tempColor = _textBackgroundImage.color;
                 // _textBackgroundImage.color = tempColor;
             }
         }
-      else
-        {
-            txtAdv = 0;
-        }
 
         //check if player has hit Space Bar
         if (Input.GetKeyDown("space"))
