@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
     private Item heldItem;
     //Holds reference to "Memory" associated with the item the player last picked up
     private String memory;
+    public Text printMemory;
+    private int txtAdv;
+
     private bool holdingItem;
 
     //True if the player is currently overlapping an interactable object
@@ -50,6 +54,7 @@ public class Player : MonoBehaviour
         isWalking = false;
         facingLeft = true;
         holdingItem = false;
+        txtAdv = 0;
     }
 
 
@@ -105,6 +110,8 @@ public class Player : MonoBehaviour
             Debug.Log("GET DUNKED ON");
             heldItem = null;
             holdingItem = false;
+            txtAdv = 0;
+            printMemory.text = "";
         }
         //If the object is an Item, add it to player's "heldItem"
         //and remove it from play
@@ -141,10 +148,10 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //Print string of item, if one exists
-        if (memory != null)
+        if (holdingItem && ( txtAdv <= memory.Length * 2 ) )
         {
-            Debug.Log( memory );
-            memory = null;
+            txtAdv++;
+            printMemory.text = memory.Substring(0, ( txtAdv / 2 ) );
         }
 
         //check if player has hit Space Bar
